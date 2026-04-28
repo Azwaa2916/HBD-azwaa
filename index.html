@@ -15,6 +15,11 @@ body {
   color: #333;
 }
 
+/* LOCK SCROLL WHEN POPUP OPEN */
+body.popup-open {
+  overflow: hidden;
+}
+
 /* Sections */
 .section {
   padding: 70px 20px;
@@ -213,7 +218,6 @@ body {
 <div id="popup">
 
   <div class="slideshow">
-    <!-- Replace with your real photos -->
     <img class="slide active" src="./IMG_20251119_152310_531.jpg">
     <img class="slide" src="./IMG_20251119_152318_348.jpg">
     <img class="slide" src="./IMG_20260428_220201.jpg">
@@ -253,6 +257,7 @@ const observer = new IntersectionObserver((entries) => {
 
       setTimeout(() => {
         popup.classList.add("show");
+        document.body.classList.add("popup-open"); // 🔒 lock scroll
         startSlideshow();
       }, 1200);
 
